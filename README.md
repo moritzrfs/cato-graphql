@@ -102,7 +102,7 @@ import time
 import urllib.parse
 import urllib.request
 from optparse import OptionParser
-from datetime import datetime, timezone
+# from datetime import datetime, timezone
 
 ########################################################################################
 ########################################################################################
@@ -162,7 +162,7 @@ def send(query):
 # custom function moritz
 def save_event_summary(matched_count, unmatched_count, file_path="event_summary.json"):
     new_entry = {
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.datetime.now(timezone.utc).isoformat(),
         "event_counts": {
             "matched": matched_count,
             "unmatched": unmatched_count
