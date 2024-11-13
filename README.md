@@ -342,6 +342,9 @@ else:
 # API call loop
 iteration = 1
 total_count = 0
+
+matched_count = 0
+unmatched_count = 0
 while True:
     query = '''
 {
@@ -379,8 +382,6 @@ while True:
 
     # Construct list of events, with added timestamp, reordering (for Splunk) and optional filtering
     events_list = []
-    matched_count = 0
-    unmatched_count = 0
 
     for event in resp["data"]["eventsFeed"]["accounts"][0]["records"]:
         event_action = event["fieldsMap"].get("action", "")
