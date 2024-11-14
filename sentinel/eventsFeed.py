@@ -1,5 +1,8 @@
 # eventsFeed.py
 #
+# 2024-11-14: changes Moritz
+# * Updated deprecated timezone functionality
+# * Added filter option for action types (usage: -a [list] parameter)
 #
 # Version: 1.0.5
 # Author: Peter Lee, March 2024
@@ -56,7 +59,8 @@
 #                       seconds (default=infinite)
 #   -v                  Print debug info
 #   -V                  Print detailed debug info
-#
+#   -a ACTIONS          Comma-separated list of event actions to inject into sentinel
+# 
 # Examples:
 #
 # To run the script with key=YOURAPIKEY for account ID 1714 for the first time, pulling all events
@@ -81,12 +85,6 @@
 # To only see NG Anti Malware and Anti Malware subtype events:
 #   python3 eventsFeed.py -K YOURAPIKEY -I 1714 -p -s "NG Anti Malware,Anti Malware"
 #
-# This script is supplied as a demonstration of how to access the Cato API with Python. It
-# is not an official Cato release and is provided with no guarantees of support. Error handling
-# is restricted to the bare minimum required for the script to work with the API, and may not be
-# sufficient for production environments.
-#
-# All questions or feedback should be sent to api@catonetworks.com
 
 import base64
 from datetime import datetime, timezone
